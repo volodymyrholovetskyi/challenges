@@ -1,6 +1,7 @@
 package ua.vholovetskyi.reverse_string;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 
 public class ReverseString {
@@ -12,6 +13,7 @@ public class ReverseString {
         System.out.println(reverseStringUseStringBuilder2(str));
         System.out.println(reverseStringUseStack(str));
         System.out.println(reverseStringUseRecursion(str));
+        System.out.println(Arrays.toString(reverseArray(new int[]{1, 3, 5, 8})));
     }
 
     /**
@@ -69,9 +71,22 @@ public class ReverseString {
      * The fifth method is the use of recursion
      */
     public static String reverseStringUseRecursion(String str) {
+        //The base rule will return a string if the length of the string is less than or equal to one
         if (str.length() <= 1) {
           return str;
         }
         return reverseStringUseRecursion(str.substring(1)) + str.charAt(0);
+    }
+
+    /**
+     * The sixth method is the use of recursion
+     */
+    public static int[] reverseArray(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            int temp = array[i];
+            array[i] = array[array.length - i -1];
+            array[array.length - i - 1] = temp;
+        }
+        return array;
     }
 }
