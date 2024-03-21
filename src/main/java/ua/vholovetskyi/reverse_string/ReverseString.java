@@ -11,10 +11,11 @@ public class ReverseString {
         System.out.println(reverseStringUseCharArray(str));
         System.out.println(reverseStringUseStringBuilder2(str));
         System.out.println(reverseStringUseStack(str));
+        System.out.println(reverseStringUseRecursion(str));
     }
 
     /**
-     * The first way to use StringBuilder
+     * The first way is the use StringBuilder
      */
     public static String reverseStringUseStringBuilder(String str) {
         StringBuilder sb = new StringBuilder(str);
@@ -23,7 +24,7 @@ public class ReverseString {
     }
 
     /**
-     * The second way to use char[]
+     * The second way is the use char[]
      */
     public static String reverseStringUseCharArray(String str) {
         char[] chars = str.toCharArray();
@@ -37,7 +38,7 @@ public class ReverseString {
     }
 
     /**
-     * The third way to use StringBuilder 2
+     * The third way is the use StringBuilder 2
      */
 
     public static String reverseStringUseStringBuilder2(String str) {
@@ -49,7 +50,7 @@ public class ReverseString {
     }
 
     /**
-     * The fourth way to use Stack
+     * The fourth way is the use of Stack
      */
     public static String reverseStringUseStack(String str) {
         Deque<Character> stack = new ArrayDeque<>() {
@@ -62,5 +63,15 @@ public class ReverseString {
             sb.append(stack.pop());
         }
         return sb.toString();
+    }
+
+    /**
+     * The fifth method is the use of recursion
+     */
+    public static String reverseStringUseRecursion(String str) {
+        if (str.length() <= 1) {
+          return str;
+        }
+        return reverseStringUseRecursion(str.substring(1)) + str.charAt(0);
     }
 }
